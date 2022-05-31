@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html>
+  {% load static %}{% block content %}
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <!-- Bootstrap Icon -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css"
+    />
+    <!-- external CSS  -->
+    <link
+      rel="stylesheet"
+      href="https://nihalthakre.web.app/assets/basic.css"
+    />
+    <title>Iran Top5</title>
+    <style>
+      /* body {
+            min-width: 560px !important;
+        } */
+
+      .color-1 {
+        background-color: #2b4a27;
+      }
+
+      .textColor-1 {
+        color: #2b4a27;
+      }
+
+      .borderColor-1 {
+        border-color: #2b4a27 !important;
+      }
+
+      .color-2 {
+        background-color: #e5623a;
+      }
+
+      .textColor-2 {
+        color: #e5623a;
+      }
+
+      .color-white {
+        background-color: white;
+      }
+
+      .textColor-white {
+        color: white;
+      }
+
+      .color-black {
+        background-color: black;
+      }
+
+      .textColor-black {
+        color: black;
+      }
+
+      .color-light {
+        background-color: rgb(215, 215, 215);
+      }
+
+      .textColor-light {
+        color: rgb(215, 215, 215);
+      }
+
+      .scrollBar-10::-webkit-scrollbar-track {
+        background-color: transparent !important;
+      }
+
+      #header {
+        display: flex;
+      }
+
+      #mobile-header {
+        display: none;
+      }
+
+      #hidden-menu {
+        display: none;
+      }
+
+      #side-ads {
+        display: flex;
+        flex-direction: column;
+      }
+
+      @media screen and (max-width: 600px) {
+        #side-ads {
+          display: none;
+        }
+
+        #header {
+          display: none;
+        }
+
+        #mobile-header {
+          display: flex;
+        }
+
+        #hidden-menu {
+          display: unset;
+          transition: all, 0.5s;
+        }
+
+        .hide {
+          transform: translateX(-100%);
+        }
+      }
+
+      .border-none {
+        border: 0px !important;
+      }
+
+      .br-14 {
+        border-radius: 14px !important;
+      }
+
+      .card-title h5 {
+        color: #2b4a27 !important;
+      }
+
+      .page-link {
+        border: none !important;
+      }
+
+      .page-item.active .page-link {
+        border-radius: 18px;
+        padding: 6px 13px !important;
+        background-color: #e5623a !important;
+      }
+
+      @media (max-width: 767px) {
+        .carousel-inner .carousel-item > div {
+          display: none;
+        }
+
+        .carousel-inner .carousel-item > div:first-child {
+          display: block;
+        }
+      }
+
+      .carousel-inner .carousel-item.active,
+      .carousel-inner .carousel-item-next,
+      .carousel-inner .carousel-item-prev {
+        display: flex;
+      }
+
+      /* medium and up screens */
+      @media (min-width: 768px) {
+        .carousel-inner .carousel-item-end.active,
+        .carousel-inner .carousel-item-next {
+          transform: translateX(25%);
+        }
+
+        .carousel-inner .carousel-item-start.active,
+        .carousel-inner .carousel-item-prev {
+          transform: translateX(-25%);
+        }
+      }
+
+      .carousel-inner .carousel-item-end,
+      .carousel-inner .carousel-item-start {
+        transform: translateX(0);
+      }
+
+      .border-none-top {
+        /* border: 1px solid #e2e2e2 !important;
+            border-top: none !important; */
+        border-radius: 0 0 12px 12px;
+        background-color: #fff !important;
+      }
+
+      .black-circle {
+        background: #fff;
+        border-radius: 30px;
+        padding: 3px 8px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- header -->
+    <div
+    id="mobile-header"
+    class="col-12 color-1 py-3 px-1 px-lg-5 justify-content-between"
+  >
+    <div class="d-flex">
+      <div
+        onclick="document.getElementById('hidden-menu').classList.remove('hide');"
+      >
+        <i class="fs-5 textColor-white bi bi-list me-3"></i>
+      </div>
+      <img
+        class="mx-2"
+        src="https://www.irantop5.com/static/site/img/irantop5v42.png"
+        alt="logo"
+        style="height: 30px"
+      />
+    </div>
+    <div class="px-2">
+      <i class="bi bi-person-fill textColor-white mx-1"></i>
+      <i class="bi bi-search textColor-white mx-1"></i>
+    </div>
+  </div>
+  <div
+    id="hidden-menu"
+    class="hide"
+    style="
+      background-color: rgba(0, 0, 0, 0.5);
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      z-index: 999;
+    "
+  >
+    <div
+      class="color-1"
+      style="
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        z-index: 1000;
+        min-width: 70%;
+        max-width: 100%;
+      "
+    >
+      <div class="d-flex justify-content-between align-items-center p-2">
+        <div>
+          <img
+            class="mx-2"
+            src="https://www.irantop5.com/static/site/img/irantop5v42.png"
+            alt="logo"
+            style="height: 30px"
+          />
+        </div>
+        <div
+          onclick="document.getElementById('hidden-menu').classList.add('hide');"
+          class="textColor-white"
+        >
+          <i class="fs-4 bi bi-x"></i>
+        </div>
+      </div>
+      <div class="d-flex flex-column p-3 pt-5">
+        {% if isLoggedIn %}
+        <div class="mx-2 textColor-white my-3">
+          <a href="{% url 'home' %}">{% if lang == 'en' %}{{ staticTextMap.side_menu_options_home_en}}{% else %}{{ staticTextMap.side_menu_options_home_fa }}{% endif %}</a>
+        </div>
+        <div class="mx-2 textColor-white my-3">
+          <a href="{% url 'categories' %}">{% if lang == 'en' %}{{staticTextMap.side_menu_options_categories_en }}{% else %}{{staticTextMap.side_menu_options_categories_fa }}{% endif %}</a>
+        </div>
+        <div class="mx-2 textColor-white my-3">
+          <a href="{% url 'profile' %}">{% if lang == 'en' %}{{staticTextMap.side_menu_options_my_profile_en }}{% else %}{{staticTextMap.side_menu_options_my_profile_fa }}{% endif %}</a >
+        </div>
+        <div class="mx-2 textColor-white my-3">
+          <a href="{% url 'browse' %}">{% if lang == 'en' %}{{ staticTextMap.side_menu_options_browse_en}}{% else %}{{ staticTextMap.side_menu_options_browse_fa }}{%endif %}</a>
+        </div>
+        <div class="mx-2 textColor-white my-3">
+          <a href="{% url 'saved' 0 %}">{% if lang == 'en' %}{{staticTextMap.side_menu_options_saved_posts_en }}{% else %}{{staticTextMap.side_menu_options_saved_posts_fa }}{% endif %}</a>
+        </div>
+        <div class="mx-2 textColor-white my-3">
+          <a href="{% url 'logout' %}">{% if lang == 'en' %}{{staticTextMap.side_menu_options_log_out_en }}{% else %}{{staticTextMap.side_menu_options_log_out_fa }}{% endif %}</a>
+        </div>
+        {% else %}
+        <div class="mx-2 textColor-white my-3">
+          <a href="{% url 'categories' %}">{% if lang == 'en' %}{{staticTextMap.side_menu_options_categories_en }}{% else %}{{staticTextMap.side_menu_options_categories_fa }}{% endif %}</a>
+        </div>
+        <div class="mx-2 textColor-white my-3">
+          <a href="{% url 'credentials' %}">Log In</a>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  <div
+    id="header"
+    class="col-12 color-1 py-3 px-1 px-lg-5 justify-content-between"
+  >
+    <div class="px-2 mt-2">
+      <i class="p-2 mt-2 bi bi-person-fill textColor-white mx-1"></i>
+      <i class="p-2 mt-2 bi bi-search textColor-white mx-1"></i>
+    </div>
+    <div class="px-2 d-flex">
+      {% if isLoggedIn %}
+      <div class="p-2 mx-2 textColor-white">
+        <a href="{% url 'home' %}">{% if lang == 'en' %}{{ staticTextMap.side_menu_options_home_en}}{% else %}{{ staticTextMap.side_menu_options_home_fa }}{% endif%}</a>
+      </div>
+      <div class="p-2 mx-2 textColor-white">
+        <a href="{% url 'categories' %}">{% if lang == 'en' %}{{staticTextMap.side_menu_options_categories_en }}{% else %}{{staticTextMap.side_menu_options_categories_fa }}{% endif %}</a>
+      </div>
+      <div class="p-2 mx-2 textColor-white">
+        <a href="{% url 'profile' %}">{% if lang == 'en' %}{{staticTextMap.side_menu_options_my_profile_en }}{% else %}{{staticTextMap.side_menu_options_my_profile_fa }}{% endif %}</a>
+      </div>
+      <div class="p-2 mx-2 textColor-white">
+        <a href="{% url 'browse' %}">{% if lang == 'en' %}{{ staticTextMap.side_menu_options_browse_en}}{% else %}{{ staticTextMap.side_menu_options_browse_fa }}{% endif%}</a>
+      </div>
+      <div class="p-2 mx-2 textColor-white">
+        <a href="{% url 'saved' 0 %}">{% if lang == 'en' %}{{staticTextMap.side_menu_options_saved_posts_en }}{% else %}{{staticTextMap.side_menu_options_saved_posts_fa }}{% endif %}</a>
+      </div>
+      <div class="p-2 mx-2 textColor-white">
+        <a href="{% url 'logout' %}">{% if lang == 'en' %}{{ staticTextMap.side_menu_options_log_out_en}}{% else %}{{ staticTextMap.side_menu_options_log_out_fa }}{% endif%}</a>
+      </div>
+      <img
+        class="p-1 mx-2"
+        src="https://www.irantop5.com/static/site/img/irantop5v42.png"
+        alt="logo"
+        style="height: 40px"
+      />
+      {% else %}
+      <div class="p-2 mx-2 textColor-white">
+        <a href="{% url 'categories' %}">{% if lang == 'en' %}{{staticTextMap.side_menu_options_categories_en }}{% else %}{{staticTextMap.side_menu_options_categories_fa }}{% endif %}</a>
+      </div>
+      <div class="p-2 mx-2 textColor-white">
+        <a href="{% url 'credentials' %}">Log In</a>
+      </div>
+      <img
+        class="p-1 mx-2"
+        src="https://www.irantop5.com/static/site/img/irantop5v42.png"
+        alt="logo"
+        style="height: 40px"
+      />
+      {% endif %}
+    </div>
+  </div>
+    <!-- Header end-->
+    <div class="container">
+      {% comment %} {% if recentPosts|length > 0 %} {% for post in recentPosts
+      %} {% if post.link != "" %}
+      <a href="{{ post.link }}" class="progressive replace">
+        <img
+          src="{% if 'minLink' in post %}{{ post.minLink }}{% else %}{{ post.link }}{% endif %}"
+          class="preview"
+          alt="image"
+          style="width: 100%"
+        />
+      </a>
+      {% endif %} {% endfor %} {% for post in recentPosts %} {% endfor %} {%
+      endif %} {% endcomment %}
+      
+      <!-- sections -->
+      <div class="px-1 px-lg-5">
+        <!-- Cover -->
+        <div class="row mx-1 my-3 rounded-3 overflow-hidden">
+          <div class="col-8">
+            <div class="row">
+              
+              <div class="d-flex flex-grow-1 col-8 p-1">
+                <a style="display: contents;" href="/posts/{{ recentPosts.0.id }}">
+                <div
+                  class="col-12"
+                  style="
+                    background-position: center;
+                    border-radius: 12px 0px 0px 0px;
+                    padding-top: 50%;
+                    background-size: cover;
+                    background-image: url('{{ recentPosts.0.link }}');
+                  "
+                ></div>
+              </a>
+              </div>
+            
+            
+              <div class="d-flex flex-grow-1 col-4 p-1">
+                <a style="display: contents;" href="/posts/{{ recentPosts.1.id }}">
+                <div
+                  class="col-12"
+                  style="
+                    background-position: center;
+                    padding-top: 100%;
+                    background-size: cover;
+                    background-image: url('{{ recentPosts.1.link }}');
+                  "
+                ></div>
+              </a>
+              </div>
+            </div>
+          
+          
+            <div class="row">
+              <div class="d-flex flex-grow-1 col-4 p-1">
+                <a style="display: contents;" href="/posts/{{ recentPosts.2.id }}">
+                <div
+                  class="col-12"
+                  style="
+                    background-position: center;
+                    border-radius: 0px 0px 0px 12px;
+                    padding-top: 100%;
+                    background-size: cover;
+                    background-image: url('{{ recentPosts.2.link }}');
+                  "
+                ></div>
+              </a>
+              </div>
+            
+    
+              <div class="d-flex flex-grow-1 col-8 p-1">
+                <a style="display: contents;" href="/posts/{{ recentPosts.3.id }}">
+                <div
+                  class="col-12"
+                  style="
+                    background-position: center;
+                    padding-top: 50%;
+                    background-size: cover;
+                    background-image: url('{{ recentPosts.3.link }}');
+                  "
+                ></div>
+              </a>
+              </div>
+            </div>
+          </div>
+          <div class="d-flex flex-grow-1 col-4 p-1 flex-grow-0 flex-shrink-0">
+            <a style="display: contents;" href="/posts/{{ recentPosts.4.id }}">
+            <div
+              class="col-12"
+              style="
+                background-position: center;
+                border-radius: 0px 12px 12px 0px;
+                padding-top: 100%;
+                background-size: cover;
+                background-image: url('{{ recentPosts.4.link }}');
+              "
+            ></div>
+          </a>
+          </div>
+        </div>
+      
+        <div class="my-4">
+          <a href="https://www.digikala.com/search/category-dk-ds-gift-card/"
+            ><img
+              style="height: auto; width: 100%"
+              src="{% static 'site/img/ad_banner.png' %}"
+          /></a>
+        </div>
+
+        <!-- ads and posts  -->
+        <div class="my-5">
+          <div class="row">
+            <div class="col-lg-3 col-md-3">
+              <div class="row row-cols-1 row-cols-md-3 g-4">
+                <div class="col-lg-12">
+                  <img
+                    class="p-2"
+                    src="https://d274vvfz1d36ey.cloudfront.net/wp-content/uploads/2021/05/the-gourmet-trails-300x255.png"
+                    width="100%"
+                    alt=""
+                  />
+                </div>
+
+                <div class="col-lg-12">
+                  <img
+                    class="p-2"
+                    src="https://d274vvfz1d36ey.cloudfront.net/wp-content/uploads/2021/05/the-gourmet-trails-300x255.png"
+                    width="100%"
+                    alt=""
+                  />
+                </div>
+
+                <div class="col-lg-12">
+                  <img
+                    class="p-2"
+                    src="https://d274vvfz1d36ey.cloudfront.net/wp-content/uploads/2021/05/the-gourmet-trails-300x255.png"
+                    width="100%"
+                    alt=""
+                  />
+                </div>
+                <div class="col-lg-12">
+                  <img
+                    class="p-2"
+                    src="https://d274vvfz1d36ey.cloudfront.net/wp-content/uploads/2021/05/the-gourmet-trails-300x255.png"
+                    width="100%"
+                    alt=""
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-9 col-md-9">
+              <h5 dir="rtl" class="me-4">Posts</h5>
+              <hr>
+              <div id="posts" class="row row-cols-1 row-cols-md-3 g-4">
+              </div>
+              <div id="loader">
+                <div class="d-flex justify-content-center">
+                <div class="spinner-border text-success m-5" style="width: 5rem; height: 5rem;" role="status">
+                </div>
+              </div>
+              </div>
+              <div class="row">
+
+                  <hr>
+                  <div class="col-lg-4 col-md-4 col-sm-4">
+                      <p class="mt-2">First Page مجموع مطالب: 102</p>
+                  </div>
+
+                  <div class="col-lg-4 col-md-4 col-sm-4">
+
+                      <nav aria-label="Page navigation example ">
+                          <ul class="pagination">
+                              <li class="page-item">
+                                  <a class="page-link" href="#" aria-label="Previous">
+                                      <span aria-hidden="true">&laquo;</span>
+                                  </a>
+                              </li>
+                              <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                              <li class="page-item"><a class="page-link" href="#">2</a></li>
+                              <li class="page-item"><a class="page-link" href="#">3</a></li>
+                              <li class="page-item">
+                                  <a class="page-link" href="#" aria-label="Next">
+                                      <span aria-hidden="true">&raquo;</span>
+                                  </a>
+                              </li>
+                          </ul>
+                      </nav>
+
+                  </div>
+
+
+                  <div class="col-lg-4 col-md-4 col-sm-4">
+                      <p class="mt-2 float-end">Last Page مجموع صفحات: 26</p>
+                  </div>
+
+                  <hr>
+
+              </div>
+          </div>
+          </div>
+        </div>
+        <!-- ads and post end  -->
+
+        <!-- bottom Ads -->
+        <div class="my-4">
+          <a href="https://www.digikala.com/search/category-dk-ds-gift-card/"
+            ><img
+              style="height: auto; width: 100%"
+              src="{% static 'site/img/ad_banner.png' %}"
+          /></a>
+        </div>
+        <!-- bottom Ads end -->
+
+        <div class="container br-14 my-3 py-3" dir="rtl" style="background-color: #2b4a27;">
+          <h4 class="font-weight-light textColor-white">بیشترین بازدید</h4>
+          <hr color="white" style="color: white;height: 2px;">
+
+          <div class="row mx-auto my-auto justify-content-center">
+              <div id="recipeCarousel" class="carousel carousel-dark slide" data-bs-ride="carousel">
+                  <div class="carousel-inner" role="listbox">
+                      <div class="carousel-item active">
+
+                          <div class="col-md-3">
+                              <div class="card border-none color-1 br-14 p-2">
+                                <div class="col-12" style="border-radius:12px 12px 0px 0px; background-position:center;background-size:cover; background-image:url('{{ recentPosts.5.link }}'); padding-top:70%;"></div>
+                                  <div class="card-body border-none-top">
+                                      <h6 class="card-title textClamp-1">{{ recentPosts.5.cardTitle }}</h6>
+                                      <p class="card-text textColor-2 mb-1">
+                                        {{ recentPosts.5.categoryText }}</p>
+                                      <div class="d-flex">
+                                          
+
+                                          <p class="card-text float-end">
+                                              <small class="text-muted">
+                                                {{ recentPosts.5.likeCnt }}<i class="bi bi-heart ms-1"></i> &nbsp;&nbsp;
+                                                {{ recentPosts.5.commentCnt }}<i class="bi bi-chat-left mx-1"></i></small></p>
+                                      </div>
+
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+
+                      <div class="carousel-item">
+
+                          <div class="col-md-3">
+                              <div class="color-1 card border-none  br-14 p-2">
+                                <div class="col-12" style="border-radius:12px 12px 0px 0px; background-position:center;background-size:cover; background-image:url('{{ recentPosts.6.link }}'); padding-top:70%;"></div>
+                                  <div class="card-body border-none-top">
+                                      <h6 class="card-title textClamp-1">{{ recentPosts.6.cardTitle }}</h6>
+                                      <p class="card-text textColor-2 mb-1">
+                                        {{ recentPosts.6.categoryText }}</p>
+                                      <div class="d-flex">
+                                          
+
+                                          <p class="card-text float-end">
+                                              <small class="text-muted">
+                                                {{ recentPosts.6.likeCnt }}<i class="bi bi-heart ms-1"></i> &nbsp;&nbsp; 
+                                                {{ recentPosts.6.commentCnt }}<i class="bi bi-chat-left mx-1"></i></small></p>
+                                      </div>
+
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+
+                      <div class="carousel-item">
+
+                          <div class="col-md-3">
+                              <div class="color-1 card border-none  br-14 p-2">
+                                <div class="col-12" style="border-radius:12px 12px 0px 0px; background-position:center;background-size:cover; background-image:url('{{ recentPosts.7.link }}'); padding-top:70%;"></div>
+                                  <div class="card-body border-none-top">
+                                      <h6 class="card-title textClamp-1">{{ recentPosts.7.cardTitle }}</h6>
+                                      <p class="card-text textColor-2 mb-1">
+                                        {{ recentPosts.7.categoryText }}</p>
+                                      <div class="d-flex">
+                                          <p class="card-text float-end">
+                                              <small class="text-muted">
+                                                {{ recentPosts.7.likeCnt }}<i class="bi bi-heart ms-1"></i> &nbsp;&nbsp;
+                                                {{ recentPosts.7.commentCnt }}<i class="bi bi-chat-left mx-1"></i></small></p>
+                                      </div>
+
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+
+                      <div class="carousel-item">
+
+                          <div class="col-md-3">
+                              <div class="color-1 card border-none  br-14 p-2">
+                                <div class="col-12" style="border-radius:12px 12px 0px 0px; background-position:center;background-size:cover; background-image:url('{{ recentPosts.8.link }}'); padding-top:70%;"></div>
+                                  <div class="card-body border-none-top">
+                                      <h6 class="card-title textClamp-1">{{ recentPosts.8.cardTitle }}</h6>
+                                      <p class="card-text textColor-2 mb-1">
+                                        {{ recentPosts.8.categoryText }}</p>
+                                      <div class="d-flex">
+                                          
+
+                                          <p class="card-text float-end">
+                                              <small class="text-muted">
+                                                {{ recentPosts.8.likeCnt }}<i class="bi bi-heart ms-1"></i> &nbsp;&nbsp; 
+                                                {{ recentPosts.8.commentCnt }}<i class="bi bi-chat-left mx-1"></i></small></p>
+                                      </div>
+
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+
+                      <div class="carousel-item">
+
+                          <div class="col-md-3">
+                              <div class="color-1 card border-none  br-14 p-2">
+                                <div class="col-12" style="border-radius:12px 12px 0px 0px; background-position:center;background-size:cover; background-image:url('{{ recentPosts.9.link }}'); padding-top:70%;"></div>
+
+                                  <div class="card-body border-none-top">
+                                      <h6 class="card-title textClamp-1">{{ recentPosts.9.cardTitle }}</h6>
+                                      <p class="card-text textColor-2 mb-1">
+                                            {{ recentPosts.9.categoryText }}</p>
+                                      <div class="d-flex">     
+                                          <p class="card-text float-end">
+                                              <small class="text-muted">
+                                                {{ recentPosts.9.likeCnt }}<i class="bi bi-heart ms-1"></i> &nbsp;&nbsp; 
+                                                {{ recentPosts.9.commentCnt }}<i class="bi bi-chat-left mx-1"></i></small></p>
+                                      </div>
+
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+
+                  </div>
+                  <a class="carousel-control-prev bg-transparent w-aut" href="#recipeCarousel" role="button"
+                      data-bs-slide="prev">
+                      <div class="black-circle">
+                          <span class="carousel-control-prev-icon mt-1" aria-hidden="true"></span>
+                      </div>
+                  </a>
+                  <a class="carousel-control-next bg-transparent w-aut" href="#recipeCarousel" role="button"
+                      data-bs-slide="next">
+                      <div class="black-circle">
+                          <span class="carousel-control-next-icon mt-1" aria-hidden="true"></span>
+                      </div>
+                  </a>
+              </div>
+          </div>
+      </div>
+        
+      </div>
+    </div>
+
+    <!-- social links -->
+
+    <div
+      class="d-flex justify-content-between py-3 border-top border-3 borderColor-1"
+    >
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-5 ms-auto">
+            <i class="bi bi-telegram m-2" style="color: #56a6e7"></i>
+            <i
+              class="bi bi-instagram m-2"
+              style="
+                color: transparent;
+                background: radial-gradient(
+                  circle at 30% 107%,
+                  #fdf497 0%,
+                  #fdf497 5%,
+                  #fd5949 45%,
+                  #d6249f 60%,
+                  #285aeb 90%
+                );
+                background: -webkit-radial-gradient(
+                  circle at 30% 107%,
+                  #fdf497 0%,
+                  #fdf497 5%,
+                  #fd5949 45%,
+                  #d6249f 60%,
+                  #285aeb 90%
+                );
+                background-clip: text;
+                -webkit-background-clip: text;
+              "
+            ></i>
+            <i class="bi bi-twitter m-2" style="color: #4da5ed"></i>
+            <i class="bi bi-facebook m-2" style="color: #3b75e9"></i>
+          </div>
+          <div class="col-lg-5 me-auto">
+            <div class="textColor-1 float-end">ایران تاپ 5 در شبکه های اجتماعی</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- footer -->
+    <div class="col-12 py-3 color-1 d-flex justify-content-between">
+      <div class="col-3 px-5">
+        <div class="col-12">
+          <img class="col-12 rounded" src="image/android.png" alt="" />
+        </div>
+      </div>
+      <div class="col-3 px-5">
+        <div class="col-12 d-flex flex-column">
+          <div class="my-2 textColor-white text-end">ورزش و سرگرمی</div>
+          <div class="my-2 textColor-white text-end">آموزش</div>
+          <div class="my-2 textColor-white text-end">فرهنگ و هنر</div>
+        </div>
+      </div>
+      <div class="col-3 px-5">
+        <div class="col-12 d-flex flex-column">
+          <div class="my-2 textColor-white text-end">سفر و گردشگری</div>
+          <div class="my-2 textColor-white text-end">تکنولوژی</div>
+          <div class="my-2 textColor-white text-end">غذا و سلامتی</div>
+          <div class="my-2 textColor-white text-end">سبک زندگی</div>
+        </div>
+      </div>
+      <div class="col-3 px-5">
+        <div class="col-12 d-flex flex-column justify-content-center">
+          <div class="d-flex justify-content-center my-2">
+            <img
+              class="mx-2 col-6"
+              src="https://www.irantop5.com/static/site/img/irantop5v42.png"
+              alt="logo"
+            />
+          </div>
+          <div
+            class="border-top border-bottom text-center textColor-white my-2 py-2"
+          >
+          مجله ای برای تمام ایران
+          </div>
+          <div class="my-2 textColor-white d-flex justify-content-between">
+            <div>درباره ما</div>
+            <div>ارتباط با ما</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="textColor-white text-center fw-bold py-2"
+      style="background-color: #223d24"
+    >
+    .کپی بخش یا کل هر کدام از مطالب ایران تاپ 5 تنها با کسب مجوز مکتوب امکان پذیر است ©
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+      let items = document.querySelectorAll(".carousel .carousel-item");
+
+      items.forEach((el) => {
+        const minPerSlide = 4;
+        let next = el.nextElementSibling;
+        for (var i = 1; i < minPerSlide; i++) {
+          if (!next) {
+            // wrap carousel by using first child
+            next = items[0];
+          }
+          let cloneChild = next.cloneNode(true);
+          el.appendChild(cloneChild.children[0]);
+          next = next.nextElementSibling;
+        }
+      });
+    </script>
+
+    <script>
+      const posts = document.getElementById("posts");
+      const lang = "{{ lang }}";
+
+      let allLoadedPosts = [];
+      let pageNumber = 0;
+
+      let isLoadingPosts = false;
+      let isNoMorePosts = false;
+
+      {% comment %} const loader = document.getElementById {% endcomment %}
+
+      function loadPosts() {
+        isLoadingPosts = true;
+
+        $("#loader").show();
+        // console.log("NikuBad", "{{ csrf_token }}");
+
+        data = {
+          type: "load",
+          page_number: pageNumber,
+          csrfmiddlewaretoken: "{{ csrf_token }}",
+        };
+
+        $.ajax({
+          type: "POST",
+          url: "{% url 'home' %}",
+          data: data,
+          success: (response) => {
+            console.log("POSTS", response);
+            if (response.result == "success") {
+              if (response.posts.length > 0) {
+                allLoadedPosts = [];
+                response.posts.forEach((post) => {
+                  allLoadedPosts.push(post);
+                  createPostElement(post);
+                });
+              } else {
+                isNoMorePosts = true;
+                if (pageNumber == 0 && allLoadedPosts.length == 0) {
+                  $("#noPosts").show();
+                }
+              }
+            
+            } else {
+              if ('invalid' in response) {
+                window.location.href = "{% url 'invalid' %}";
+              }
+            }
+            $("#loader").hide();
+            isLoadingPosts = false;
+          },
+          error: (xhr, errmsg, err) => {
+            console.log("Loading Posts ... ", xhr.status);
+            $("#loader").hide();
+            console.log(xhr.status + ": " + xhr.responseText); // provide a bit more info about the error to the console
+          },
+        });
+      }
+
+      function createPostElement(postMap){
+
+        let post = document.createElement("div");
+        post.setAttribute("id", "post_" + postMap["id"]);
+        post.classList.add("post");
+        post.setAttribute("style", "width:100%");
+        post.innerHTML = `
+        <div class="col-lg-12" dir="rtl">
+        
+          <div class="card mb-3 border-none" style="border: none;">
+              <div class="row g-0">
+                <a style="display: contents;" href="/posts/`+postMap["id"]+`"><div class="col-md-4 d-flex">
+                      <div style="background-image:url('`+postMap["link"]+`'); background-size:cover; background-position:center;"
+                          class="img-fluid rounded-start flex-grow-1"> </div>
+                  </div></a>
+                  <div class="col-md-8">
+                    <a href="/posts/`+postMap["id"]+`"><div class="card-body">
+                          <h5 class="textColor-1  card-title">`+postMap["name"]+`</h5>
+                          <p class="card-text"><small class="text-muted">`+postMap["dateTime"]+`</small></p>
+                          <div dir="rtl" class="card-text textClamp-3">`+postMap['outerText']+`</div> 
+                      </div></a>
+
+                        <div class="d-flex px-3">
+                          <div class="post_action_item d-flex ms-2 like_`+postMap["id"]+`" name="like_`+ postMap["id"]+`" >
+                            <i class="`+(postMap["isLiked"] ? "bi-heart-fill" : "bi-heart")+`" style="`+(postMap["isLiked"] ? "color: #D7443E" : "")+`">
+                            </i>
+                            <p name="likeCount_`+postMap["id"]+`">
+                              `+postMap["likesCount"]+`
+                            <p>
+                              
+                          </div>
+                          <div class="d-flex ms-2" id="postComment_`+postMap["id"]+`">
+                            <i class="bi bi-chat-left mx-1">
+                            </i>
+                            <p name="commentCount_`+postMap["id"]+`">
+                              `+postMap["comments"]+`
+                            <p>
+                              
+                          </div>
+                          <a class="flex-grow-1" href="/posts/`+postMap["id"]+`"> <div> </div> </a>
+                        </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+        `;
+
+        posts.appendChild(post);
+
+        $("[name='like_" + postMap["id"] + "']").click((e) => {
+          console.log(" like clicked");
+          console.log(e);
+          if ("{{ isLoggedIn }}" == "True") {
+            postID = $(e.target)
+              .closest(".post_action_item")
+              .attr("name")
+              .replace("like_", "");
+
+              console.log(postMap["isLiked"]);
+  
+            likePost(
+              postID,
+              //(postMap["isLiked"]) ? "false" : "true",
+              $("[name='like_" + postID + "'] > i").hasClass("bi-heart")
+            );
+          }else{
+            loginUser();
+          }
+        });
+
+
+        $("#postComment_"+postMap["id"]).click((e) => {
+          if ("{{ isLoggedIn }}" == "True") {
+            let param = encodeURI(postMap["id"]);
+            window.location.href = "{% url 'post' 123456 %}".replace(/123456/, param);
+          }else{
+              loginUser();
+          }
+        });
+
+      }
+
+      loadPosts();
+
+      function likePost(postID,isLike) {
+        $.ajax({
+          type: "POST",
+          url: "{% url 'home' %}",
+          data: {
+            type: "like",
+            postID: postID,
+            isLike: isLike,
+            csrfmiddlewaretoken: "{{ csrf_token }}",
+          },
+          success: (response) => {
+            if (response.result == "success") {
+              console.log("Liked");
+              $("[name='like_" + postID + "'] > i").toggleClass("bi-heart-fill").toggleClass("bi-heart");
+              $("[name='like_" + postID + "'] > i").css("color", isLike ? "#D7443E" : "black");
+              $("[name='likeCount_" + postID + "']").html(response.likes);
+
+            }
+          },
+          error: (xhr, errmsg, err) => {
+            console.log(xhr.status + ": " + xhr.responseText); // provide a bit more info about the error to the console
+          },
+        });
+      }
+      function loginUser(){
+        //window.location.href = "{% url 'credentials' %}";
+        window.location.href = "{% url 'credentials' %}?next={{request.path}}";
+      }
+    </script>
+
+  </body>
+  {% endblock %}
+</html>
